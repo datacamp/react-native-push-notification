@@ -157,8 +157,9 @@ public class RNPushNotificationHelper {
                 title = context.getPackageManager().getApplicationLabel(appInfo).toString();
             }
             NotificationCompat priority;
-            if (bundle.getString("priority")) {
-                switch(bundle.getString("priority").toLowerCase()) {
+            final String priorityString = bundle.getString("priority");
+            if (priorityString != null) {
+                switch(priorityString.toLowerCase()) {
                     case "max":
                         priority = NotficationCompat.PRIORITY_MAX;
                         break;
