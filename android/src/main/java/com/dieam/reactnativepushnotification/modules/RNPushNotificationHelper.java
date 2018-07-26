@@ -173,7 +173,7 @@ public class RNPushNotificationHelper {
                         priority = NotficationCompat.PRIORITY_MIN;
                         break;
                     default:
-                        priority = NotificationCompat.PRIORITY_LOW
+                        priority = NotificationCompat.PRIORITY_LOW;
                 }
             } else {
                 priority = NotificationCompat.PRIORITY_LOW;
