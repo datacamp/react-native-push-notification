@@ -156,34 +156,12 @@ public class RNPushNotificationHelper {
                 ApplicationInfo appInfo = context.getApplicationInfo();
                 title = context.getPackageManager().getApplicationLabel(appInfo).toString();
             }
-            NotificationCompat priority;
-            final String priorityString = bundle.getString("priority");
-            if (priorityString != null) {
-                switch(priorityString.toLowerCase()) {
-                    case "max":
-                        priority = NotficationCompat.PRIORITY_MAX;
-                        break;
-                    case "high":
-                        priority = NotficationCompat.PRIORITY_HIGH;
-                        break;
-                    case "low":
-                        priority = NotficationCompat.PRIORITY_LOW;
-                        break;
-                    case "min":
-                        priority = NotficationCompat.PRIORITY_MIN;
-                        break;
-                    default:
-                        priority = NotificationCompat.PRIORITY_LOW;
-                }
-            } else {
-                priority = NotificationCompat.PRIORITY_LOW;
-            }
 
             NotificationCompat.Builder notification = new NotificationCompat.Builder(context)
                     .setContentTitle(title)
                     .setTicker(bundle.getString("ticker"))
                     .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
-                    .setPriority(priority)
+                    .setPriority(NotificationCompat.PRIORITY_LOW)
                     .setAutoCancel(bundle.getBoolean("autoCancel", true));
 
             String group = bundle.getString("group");
